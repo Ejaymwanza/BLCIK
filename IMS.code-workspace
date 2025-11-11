@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../IMS"
+		},
+		{
+			"name": "one",
+			"path": "../One/one"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "one"
+	}
+}

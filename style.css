@@ -1,0 +1,298 @@
+/* ===== Base Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+}
+
+/* ===== Layout Container ===== */
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===== Sidebar Navigation ===== */
+.sidebar {
+  width: 250px;
+  background-color: #002147; /* Dark blue */
+  color: white;
+  padding: 20px 0;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar .logo-area {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.sidebar nav a {
+  padding: 15px 25px;
+  text-decoration: none;
+  color: white;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar nav a i {
+  margin-right: 10px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background-color: #002147; /* Match the sidebar background */
+}
+
+/* ===== Main Content Area ===== */
+.main-content {
+  flex-grow: 1;
+  padding: 30px;
+  background-color: #ffffff;
+  overflow-x: auto;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #002147; /* Match nav blue */
+}
+
+/* ===== Key Metrics (Cards) ===== */
+.metrics {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 30%;
+  background-color: #f4f4f4;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 160px;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.card p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ===== Charts Container ===== */
+.charts {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.charts > div {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* ===== Table Styling ===== */
+.members-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+
+.members-table th,
+.members-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.members-table th {
+  background-color: #002147; /* Match nav blue */
+  color: white;
+}
+
+.members-table td {
+  background-color: #f9f9f9;
+}
+
+.members-table td a {
+  color: #002147; /* Match nav blue */
+  text-decoration: none;
+}
+
+.members-table td a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .metrics {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .charts {
+    flex-direction: column;
+  }
+
+  .charts > div {
+    max-width: 100%;
+  }
+
+  .members-table {
+    font-size: 14px;
+  }
+}
+
+/* ===== Print Media ===== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #printable,
+  #printable * {
+    visibility: visible;
+  }
+
+  #printable {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .btn-print {
+    display: none;
+  }
+}
+
+/* ===== Login Page Styling (index.php) ===== */
+.login-body {
+  background: linear-gradient(to right, #002147, #00509e);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.logo-area {
+  font-size: 26px;
+  font-weight: bold;
+  color: #002147;
+  margin-bottom: 20px;
+}
+
+.login-container h2 {
+  margin-bottom: 25px;
+  font-size: 22px;
+  color: #333;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border 0.3s ease;
+}
+
+.login-form input:focus {
+  border-color: #00509e;
+  outline: none;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #002147;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #003366;
+}
+
+.error-msg {
+  color: #e74c3c;
+  background-color: #fcebea;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
